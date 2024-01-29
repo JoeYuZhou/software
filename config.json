@@ -1,0 +1,93 @@
+{
+  "setting": {
+    "var_path": "C://var",
+    "xml_path": "\\\\lonnfsfiler1\\cpmp\\pub\\prod\\output\\xva-pricing",
+    "apollo_path": "C://dev//Apollo-PROD",
+    "mail_app_root": "C://dev//mail_app",
+    "forecast_target_folder" : "\\\\eurfiler4\\ACPM\\Shared\\NEMO\\Data Room\\Dashboards\\DataroomExtractor\\Inputs\\SACCR"
+  }
+  ,
+
+  "APOLLO": {
+    "CLIENT" : {
+      "DIR" : "C:/dev/Apollo-PROD",
+      "ENV" : "prod",
+      "THREADS" : 4,
+      "SIM_COUNT" : 1000
+    }
+  },
+
+  "BASE": {
+    //"COB_ISO": "2022-08-23" //
+    // "COB_ISO": "2022-07-29" //
+    "COB_ISO": "2022-08-24", //
+    "APOLLO_COB_ISO": "2022-08-31" // @TODO
+  },
+
+  "REFERENCE": {
+    "MAP_L4_L1": "U:/optimisation/20220824.trioptima/0_CONTROL/L1 L4 (COB 20220818).csv", // OK
+    "CSA_VM_FILE": "U:/optimisation/REFERENCE/CSA_VM.xlsx", // OK
+    "LEI_MAP": "U:/optimisation/REFERENCE/PCAD_LEI_MAP.csv", // OK
+    "RESULTS_LE_FILE" : "C:/var/data/saccr/20220526/origin/_Results_LE/*_CRIFs_LE_*/*_Saccr_netting*.csv", // OK
+    "FX_LADDER_HORIZON_DAYS" : "365", // OK
+    "FX_LADDER_TIME_GRID" : "1Y_DAILY", // OK
+    // to wire in
+    "CIS_GRDMID_MAP": "U:/optimisation/REFERENCE/CIS_GRDMID_MAP.csv",
+    "TRIOPTIMA_IMM_MATURITY_FILE": "U:/optimisation/REFERENCE/TRIOPTIMA_IMM_MATURITY.xlsx",
+    "IMM_DAY_CAP": 50,
+    "TERM_SACCR_GRID_EVAL": "[i for i in range(0, 31)]" // #time = [i for i in range(0, 15)] + [j for j in range(21, 92, 7)] + [k for k in range(121, 482, 30)]
+  },
+
+  "NETWORK": {
+    "ROOT_DIR" :  "U:/optimisation/20220824.trioptima", //hs
+    "LEI_FILE" : "U:/optimisation/20220824.trioptima/0_CONTROL/NETWORK.csv", // OK
+    "SCOPE_FILE":"U:/optimisation/20220824.trioptima/0_CONTROL/20220830235659-(TRIOPTIMA)(NETWORK)(cob@2022-08-24).xlsx",
+    "SERVICE": "TRIOPTIMA", // OK
+    // "HEDGES_FILE": "U:/optimisation/20220824.trioptima/3_PROPOSAL/1590/tribalance/Proposal_2022-08-25_NATWEST_1590.csv",
+    // "HEDGES_ID": "1590"
+    // "HEDGES_FILE": "U:/optimisation/20220824.trioptima/3_PROPOSAL/1591/Proposal_2022-08-25_NATWEST_1591.csv",
+    // "HEDGES_ID": "1591"
+    // "HEDGES_FILE": "U:/optimisation/20220824.trioptima/3_PROPOSAL/1592/Proposal_2022-08-25_NATWEST_1592.csv",
+    // "HEDGES_ID": "1592"
+    // "HEDGES_FILE": "U:/optimisation/20220824.trioptima/3_PROPOSAL/1593/Proposal_2022-08-25_NATWEST_1593.csv",
+    // "HEDGES_ID": "1593"
+    // "HEDGES_FILE": "U:/optimisation/20220824.trioptima/3_PROPOSAL/1594/Proposal_2022-08-25_NATWEST_1594.csv",
+    // "HEDGES_ID": "1594"
+    // "HEDGES_FILE": "U:/optimisation/20220824.trioptima/3_PROPOSAL/1595/Proposal_2022-08-25_NATWEST_1595_BSCBLGB.csv",
+    // "HEDGES_ID": "1595_BSCBLGB"
+    // "HEDGES_FILE": "U:/optimisation/20220824.trioptima/3_PROPOSAL/1595/Proposal_2022-08-25_NATWEST_1595.csv",
+    // "HEDGES_ID": "1595"
+    "HEDGES_FILE": "U:/optimisation/20220824.trioptima/3_PROPOSAL/1597/Proposal_2022-08-25_NATWEST_1597.csv",
+    "HEDGES_ID": "1597"
+  },
+
+  "MEASURE": {
+    "ESTAR_TRADE_FILE": "C:/var/cache/common/eStarFinanceTrade_20220525_4.csv",
+    "T1_CAPITAL_GBP" : 4513950000, // NWM PLC T1 Capital as of 16/08/2022
+    "MTM_FILE": "U:/optimisation/20220824.trioptima/0_CONTROL/Estar_MTM_history_20220824_2.xlsx", // OK
+    //"SACCR_CRIF_DIR": "//LONMW64105/Full_CSA_Netting/20220823/origin/_CRIFs_LE/20220823", // OK-ish, ues T-2
+    // //LONMW64105/Full_CSA_Netting/20220729/origin/_CRIFs_LE/20220729
+    // //LONMW64105/Full_CSA_Netting_RWA/20220729/origin/_CRIFs_RWA/20220729
+    "SACCR_CRIF_DIR": "//LONMW64105/_CRIFs_LE/20220824/04_CRIFs",
+    //"SACCR_CRIF_DIR": "//LONMW64105/Full_CSA_Netting/20220729/origin/_CRIFs_LE/20220729",
+    //"SACCR_CRIF_DIR": "//LONMW64105/Full_CSA_Netting_RWA/20220729/origin/_CRIFs_RWA/20220729",
+    "GROUP_NONCCR_EXPOSURES": "U:/optimisation/20220824.trioptima/0_CONTROL/L1 non OTC EAD (COB 20220818).csv", // OK
+    //"CTM_ENTITY_STDDEV_BY_MATURITY": "U:/optimisation/20220815.capitolis/1_CONTROL/CTM_PORTFOLIO_STD_BY_MATURITY_XVA.csv", // TODO - AE ladder, then HS produce report, AE update ref
+    "CTM_ENTITY_STDDEV_BY_MATURITY": "U:/optimisation/20220824.trioptima/0_CONTROL/CTM_PORTFOLIO_STD_BY_MATURITY_XVA.csv",
+    "FX_GBPUSD": "1.1791", // @TODO remove dep and use fx rates
+    "APOLLO_DIAGNOSTIC_DIR": "U:/optimisation/20220824.trioptima/1_BASELINE/APOLLO.20220831",
+    "APOLLO_FX_SIMULATION_DIR": "U:/optimisation/20220824.trioptima/0_CONTROL/IMM_FX_3108"
+  },
+
+  "MARKET": {
+    "FX_SPOT_FILE": "U:/optimisation/20220824.trioptima/0_CONTROL/MARKET/20220824_fx-rates.csv",
+    // "FX_SPOT_FILE": "U:/optimisation/20220525.trioptima/1_CONTROL/fx_rates.csv",
+    "FX_CORRELATION_FILE": "U:/optimisation/20220824.trioptima/0_CONTROL/MARKET/20220824_fxfx-correlation.csv",
+    "FX_VOLATILITY_FILE": "U:/optimisation/20220824.trioptima/0_CONTROL/MARKET/20220824_fx-volatility.csv",
+    "DISCOUNT_FILE": "U:/optimisation/20220824.trioptima/0_CONTROL/MARKET/20220824_discountfactors.csv"
+  }
+
+}
+
+
+
